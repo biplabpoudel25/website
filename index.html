@@ -12,81 +12,6 @@
     <link rel="icon" href="{{ url_for('static', filename='img/favicon.svg') }}">
 
 <style>
-<!--:root {-->
-<!--  &#45;&#45;accent: #348ac7;-->
-<!--  &#45;&#45;accent2: #12d2ac;-->
-<!--  &#45;&#45;text: #222;-->
-<!--  &#45;&#45;muted: #555;-->
-<!--  &#45;&#45;bg: #eef0f5;-->
-<!--  &#45;&#45;card: #fff;-->
-<!--}-->
-<!--:root[data-theme='dark'] {-->
-<!--  &#45;&#45;bg: #080a12;-->
-<!--  &#45;&#45;card: #141826;-->
-<!--  &#45;&#45;text: #e8ebf3;-->
-<!--  &#45;&#45;muted: #9aa3b2;-->
-<!--}-->
-<!--body {-->
-<!--  background: var(&#45;&#45;bg);-->
-<!--  color: var(&#45;&#45;text);-->
-<!--  font-family: system-ui, -apple-system, "Segoe UI", Roboto;-->
-<!--  margin: 0;-->
-<!--  padding: 0;-->
-<!--  line-height: 1.6;-->
-<!--  transition: background 0.4s ease, color 0.4s ease;-->
-<!--}-->
-<!--.container { max-width: 780px; margin: 0 auto; padding: 20px; text-align: left; }-->
-<!--header { text-align: center; }-->
-<!--header img { width:140px; height:140px; border-radius:50%; margin-top:20px; box-shadow:0 2px 8px rgba(0,0,0,0.15); }-->
-<!--.section { margin:40px 0; }-->
-<!--.section h2 { border-bottom:1px solid rgba(0,0,0,0.12); padding-bottom:6px; display:block; width:100%; }-->
-<!--[data-theme='dark'] .section h2 { border-bottom:1px solid rgba(255,255,255,0.08); }-->
-<!--ul, ol { list-style:none; padding:0; margin:0; }-->
-<!--li { margin-bottom:12px; }-->
-<!--a { color:var(&#45;&#45;accent); text-decoration:none; }-->
-<!--a:hover { text-decoration:underline; }-->
-<!--.socials { display:flex; justify-content:center; gap:18px; flex-wrap:wrap; margin:20px 0; }-->
-<!--.socials a {-->
-<!--  background:#e2e4ea;-->
-<!--  border-radius:50%;-->
-<!--  width:64px;-->
-<!--  height:64px;-->
-<!--  font-size:30px;-->
-<!--  display:inline-flex;-->
-<!--  align-items:center;-->
-<!--  justify-content:center;-->
-<!--  color:#333;-->
-<!--  transition:all 0.25s ease-in-out;-->
-<!--  box-shadow:0 2px 6px rgba(0,0,0,0.08);-->
-<!--}-->
-<!--.socials a:hover {-->
-<!--  background:linear-gradient(135deg,var(&#45;&#45;accent),var(&#45;&#45;accent2));-->
-<!--  color:#fff;-->
-<!--  transform:scale(1.12);-->
-<!--  box-shadow:0 4px 12px rgba(0,0,0,0.25);-->
-<!--}-->
-<!--[data-theme='dark'] .socials a { background:#1d2333; color:#e5e9f2; }-->
-<!--.authors,.exp-sub,.edu-sub,.book-sub {-->
-<!--  color:rgba(0,0,0,0.55);-->
-<!--  font-size:0.95em;-->
-<!--}-->
-<!--[data-theme='dark'] .authors,[data-theme='dark'] .exp-sub,-->
-<!--[data-theme='dark'] .edu-sub,[data-theme='dark'] .book-sub {-->
-<!--  color:rgba(255,255,255,0.65);-->
-<!--}-->
-<!--footer {-->
-<!--  color:var(&#45;&#45;muted);-->
-<!--  font-size:0.9em;-->
-<!--  margin-top:40px;-->
-<!--  text-align:center;-->
-<!--  letter-spacing:0.3px;-->
-<!--}-->
-<!--button.theme-toggle {-->
-<!--  position:fixed; top:12px; right:12px;-->
-<!--  background:none; border:none; font-size:1.4em; cursor:pointer;-->
-<!--}-->
-<!--    -->
-
 
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css');
 
@@ -116,27 +41,6 @@ background: linear-gradient(90deg, var(--accent), var(--accent2));
   flex-wrap: wrap;
   margin: 20px 0;
 }
-
-<!--.socials a {-->
-<!--  background: #f3f4f6;-->
-<!--  border-radius: 50%;-->
-<!--  width: 64px;        /* larger buttons */-->
-<!--  height: 64px;-->
-<!--  font-size: 20px;    /* larger icons inside */-->
-<!--  display: inline-flex;-->
-<!--  align-items: center;-->
-<!--  justify-content: center;-->
-<!--  color: #444;        /* default icon color */-->
-<!--  transition: all 0.25s ease-in-out;-->
-<!--  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);-->
-<!--}-->
-
-<!--.socials a:hover {-->
-<!--  background: linear-gradient(135deg, var(&#45;&#45;accent), var(&#45;&#45;accent2));-->
-<!--  color: #fff;                   /* icon turns white on hover */-->
-<!--  transform: scale(1.12);        /* smooth enlargement */-->
-<!--  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);-->
-<!--}-->
 
 .socials a {
   background: #e2e4ea;              /* slightly darker gray background */
@@ -177,12 +81,7 @@ background: linear-gradient(90deg, var(--accent), var(--accent2));
   --bg: #f6f7fb;
   --card: #fff;
 }
-<!--:root[data-theme='dark'] {-->
-<!--  &#45;&#45;bg: #0e101a;-->
-<!--  &#45;&#45;card: #141726;-->
-<!--  &#45;&#45;text: #e9e9ef;-->
-<!--  &#45;&#45;muted: #9aa3b2;-->
-<!--}-->
+
 
 :root[data-theme='dark'] {
   --bg: #0b0d17;          /* slightly deeper navy tone */
@@ -317,59 +216,89 @@ button:hover { opacity:0.9; }
 
 <button class="theme-toggle" id="toggle">🌓</button>
 <div class="container">
-{% with messages = get_flashed_messages(with_categories=true) %}
-  {% for c, m in messages %}<div class="flash {{ c }}">{{ m }}</div>{% endfor %}
-{% endwith %}
-{% block content %}{% endblock %}
-
-<header>
+    
+    <header>
   <img src="static/img/1684301676918.jpeg" alt="Biplab Poudel" />
   <h1>Biplab Poudel</h1>
   <h3>Ph.D. Candidate, Computer Science</h3>
   <p><em>University of Missouri–Columbia</em><br>Columbia, MO, USA</p>
-<!--  <div class="socials">-->
-<!--    <a href="mailto:bpbx2@missouri.edu" title="Email"><i class="fa-solid fa-envelope"></i></a>-->
-<!--    <a href="https://scholar.google.com/" target="_blank" title="Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a>-->
-<!--    <a href="https://github.com/biplabpoudel25" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>-->
-<!--    <a href="https://linkedin.com/in/biplab-poudel-bigul" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>-->
-<!--    <a href="https://orcid.org/" target="_blank" title="ORCID"><i class="fa-brands fa-orcid"></i></a>-->
-<!--    <a href="static/Biplab_Poudel_CV.pdf" target="_blank" title="CV (PDF)"><i class="fa-regular fa-file-lines"></i></a>-->
-<!--  </div>-->
 
   <div class="socials">
-  <!-- CV -->
-  <a href="static/Biplab_poudel_CV.pdf" target="_blank" title="CV (PDF)" aria-label="Biplab_Poudel_CV">
-    <i class="fa-regular fa-file-lines"></i>
-  </a>
+    <!-- CV -->
+    <a href="static/Biplab_poudel_CV.pdf" target="_blank" title="CV (PDF)" aria-label="Biplab_Poudel_CV">
+      <i class="fa-regular fa-file-lines"></i>
+    </a>
 
-  <!-- Email -->
-  <a href="mailto:bpbx2@missouri.edu" title="Email" aria-label="Email">
-    <i class="fa-solid fa-envelope"></i>
-  </a>
+    <!-- Email -->
+    <a href="mailto:bpbx2@missouri.edu" title="Email" aria-label="Email">
+      <i class="fa-solid fa-envelope"></i>
+    </a>
 
-  <!-- Google Scholar (no official brand icon; use cap) -->
-  <a href="https://scholar.google.com/citations?user=gUdgBaUAAAAJ&hl=en" target="_blank" title="Google Scholar" aria-label="Google Scholar">
-    <i class="fa-solid fa-graduation-cap"></i>
-  </a>
+    <!-- Google Scholar -->
+    <a href="https://scholar.google.com/citations?user=gUdgBaUAAAAJ&hl=en"
+       target="_blank" title="Google Scholar" aria-label="Google Scholar">
+      <i class="fa-solid fa-graduation-cap"></i>
+    </a>
 
-  <!-- GitHub (brand) -->
-  <a href="https://github.com/biplabpoudel25" target="_blank" title="GitHub" aria-label="GitHub">
-    <i class="fa-brands fa-github"></i>
-  </a>
+    <!-- GitHub -->
+    <a href="https://github.com/biplabpoudel25"
+       target="_blank" title="GitHub" aria-label="GitHub">
+      <i class="fa-brands fa-github"></i>
+    </a>
 
-  <!-- LinkedIn (brand) -->
-  <a href="https://linkedin.com/in/biplab-poudel-bigul" target="_blank" title="LinkedIn" aria-label="LinkedIn">
-    <i class="fa-brands fa-linkedin-in"></i>
-  </a>
+    <!-- LinkedIn -->
+    <a href="https://linkedin.com/in/biplab-poudel-bigul"
+       target="_blank" title="LinkedIn" aria-label="LinkedIn">
+      <i class="fa-brands fa-linkedin-in"></i>
+    </a>
 
-  <!-- ORCID (brand) -->
-  <a href="https://orcid.org/0009-0006-8636-1449" target="_blank" title="ORCID" aria-label="ORCID">
-    <i class="fa-brands fa-orcid"></i>
-  </a>
-
+    <!-- ORCID -->
+    <a href="https://orcid.org/0009-0006-8636-1449"
+       target="_blank" title="ORCID" aria-label="ORCID">
+      <i class="fa-brands fa-orcid"></i>
+    </a>
   </div>
-
 </header>
+
+<!--<header>-->
+<!--  <img src="static/img/1684301676918.jpeg" alt="Biplab Poudel" />-->
+<!--  <h1>Biplab Poudel</h1>-->
+<!--  <h3>Ph.D. Candidate, Computer Science</h3>-->
+<!--  <p><em>University of Missouri–Columbia</em><br>Columbia, MO, USA</p>-->
+<!--  <div class="socials">-->
+<!--  &lt;!&ndash; CV &ndash;&gt;-->
+<!--  <a href="static/Biplab_poudel_CV.pdf" target="_blank" title="CV (PDF)" aria-label="Biplab_Poudel_CV">-->
+<!--    <i class="fa-regular fa-file-lines"></i>-->
+<!--  </a>-->
+
+<!--  &lt;!&ndash; Email &ndash;&gt;-->
+<!--  <a href="mailto:bpbx2@missouri.edu" title="Email" aria-label="Email">-->
+<!--    <i class="fa-solid fa-envelope"></i>-->
+<!--  </a>-->
+
+<!--  &lt;!&ndash; Google Scholar (no official brand icon; use cap) &ndash;&gt;-->
+<!--  <a href="https://scholar.google.com/citations?user=gUdgBaUAAAAJ&hl=en" target="_blank" title="Google Scholar" aria-label="Google Scholar">-->
+<!--    <i class="fa-solid fa-graduation-cap"></i>-->
+<!--  </a>-->
+
+<!--  &lt;!&ndash; GitHub (brand) &ndash;&gt;-->
+<!--  <a href="https://github.com/biplabpoudel25" target="_blank" title="GitHub" aria-label="GitHub">-->
+<!--    <i class="fa-brands fa-github"></i>-->
+<!--  </a>-->
+
+<!--  &lt;!&ndash; LinkedIn (brand) &ndash;&gt;-->
+<!--  <a href="https://linkedin.com/in/biplab-poudel-bigul" target="_blank" title="LinkedIn" aria-label="LinkedIn">-->
+<!--    <i class="fa-brands fa-linkedin-in"></i>-->
+<!--  </a>-->
+
+<!--  &lt;!&ndash; ORCID (brand) &ndash;&gt;-->
+<!--  <a href="https://orcid.org/0009-0006-8636-1449" target="_blank" title="ORCID" aria-label="ORCID">-->
+<!--    <i class="fa-brands fa-orcid"></i>-->
+<!--  </a>-->
+
+<!--  </div>-->
+
+<!--</header>-->
 
 <!--<section class="section" id="about">-->
 <!--  <h2>About</h2>-->
@@ -433,74 +362,197 @@ button:hover { opacity:0.9; }
 <!--</section>-->
 
 
-<section class="section" id="about">
+<!--<section class="section" id="about">-->
+<!--  <h2>About</h2>-->
+<!--  <p>{{ p.about }}</p>-->
+<!--</section>-->
+
+<!--<section class="section" id="research">-->
+<!--  <h2>Research</h2>-->
+<!--  <p>{{ p.research }}</p>-->
+<!--</section>-->
+
+<!--<section class="section" id="publications">-->
+<!--  <h2>Selected Publications</h2>-->
+<!--  <ol>-->
+<!--    {% for pub in p.publications %}-->
+<!--    <li>-->
+<!--      <strong>{{ pub.title }}</strong>-->
+<!--      {% if pub.link and pub.link != '#' %}-->
+<!--        <a href="{{ pub.link }}" target="_blank" style="font-weight:normal; font-size:0.95em; margin-left:6px;">[View paper]</a>-->
+<!--      {% endif %}-->
+<!--      <br>-->
+<!--      <span class="authors">{{ pub.authors | safe }}</span>-->
+<!--      {% if pub.venue %} · <em>{{ pub.venue }}</em>{% endif %}-->
+<!--  </li>-->
+<!--    {% endfor %}-->
+<!--  </ol>-->
+<!--</section>-->
+
+<!--<section class="section" id="education">-->
+<!--  <h2>Education</h2>-->
+<!--  <ul>-->
+<!--    {% for e in p.education %}-->
+<!--      <li>-->
+<!--        <strong>{{ e.degree }} ({{ e.years }})</strong><br>-->
+<!--        <span class="edu-sub">{{ e.school }}</span>-->
+<!--      </li>-->
+<!--    {% endfor %}-->
+<!--  </ul>-->
+<!--</section>-->
+
+
+<!--<section class="section" id="experience">-->
+<!--  <h2>Experience</h2>-->
+<!--  <ul>-->
+<!--    {% for x in p.experience %}-->
+<!--      <li>-->
+<!--        <strong>{{ x.role }} ({{ x.years }})</strong><br>-->
+<!--        <span class="exp-sub">{{ x.org }}</span>-->
+<!--      </li>-->
+<!--    {% endfor %}-->
+<!--  </ul>-->
+<!--</section>-->
+
+
+<!--<section class="section" id="book">-->
+<!--  <h2>Published Book</h2>-->
+<!--  <ul>-->
+<!--    {% for b in p.books %}-->
+<!--      <li>-->
+<!--        <strong>{{ b.title }}</strong>-->
+<!--        {% if b.link and b.link != '#' %}-->
+<!--          <a href="{{ b.link }}" target="_blank" style="font-weight:normal; font-size:0.95em; margin-left:6px;">[View book]</a>-->
+<!--        {% endif %}-->
+<!--        <br>-->
+<!--        <span class="book-sub">{{ b.publisher }}, <em>{{ b.year }}</em></span>-->
+<!--      </li>-->
+<!--    {% endfor %}-->
+<!--  </ul>-->
+<!--</section>-->
+
+
+    <section class="section" id="about">
   <h2>About</h2>
-  <p>{{ p.about }}</p>
+  <p>
+    I'm a Ph.D. candidate in Computer Science at the University of Missouri–Columbia,
+    specializing in deep learning and computer vision. My work spans cryo-EM particle picking,
+    histopathology image analysis, and fluorescence-based oil-spill sensing. I focus on building
+    reliable and explainable ML systems that bridge science, health, and environmental applications.
+  </p>
 </section>
 
 <section class="section" id="research">
   <h2>Research</h2>
-  <p>{{ p.research }}</p>
+  <p>
+    My research interests include few-shot learning, vision foundation models, interpretability,
+    and scientific imaging. I develop efficient deep learning methods that generalize across
+    domains with limited supervision.
+  </p>
 </section>
 
 <section class="section" id="publications">
   <h2>Selected Publications</h2>
   <ol>
-    {% for pub in p.publications %}
     <li>
-      <strong>{{ pub.title }}</strong>
-      {% if pub.link and pub.link != '#' %}
-        <a href="{{ pub.link }}" target="_blank" style="font-weight:normal; font-size:0.95em; margin-left:6px;">[View paper]</a>
-      {% endif %}
-      <br>
-      <span class="authors">{{ pub.authors | safe }}</span>
-      {% if pub.venue %} · <em>{{ pub.venue }}</em>{% endif %}
-  </li>
-    {% endfor %}
+      <strong>Real-time oil spill concentration assessment using fluorescence imaging and deep learning</strong>
+      <a href="https://www.sciencedirect.com/science/article/pii/S0304389425022903"
+         target="_blank" style="font-weight:normal; font-size:0.95em; margin-left:6px;">[View paper]</a><br>
+      <span class="authors"><b>Biplab Poudel</b>, Jiacheng Xie, Congyu Guo, Olivia Watt, Erin Pulster,
+      Rishi J Patel, Jeffery Steevens, Dong Xu</span>
+    </li>
+
+    <li>
+      <strong>CryoFSL: an annotation-efficient, few-shot learning framework for robust protein particle picking in cryo-EM micrographs</strong>
+      <a href="https://www.biorxiv.org/content/10.1101/2025.09.19.677446.abstract"
+         target="_blank" style="font-weight:normal; font-size:0.95em; margin-left:6px;">[View paper]</a><br>
+      <span class="authors"><b>Biplab Poudel</b>, Rajan Gyawali, Ashwin Dhakal, Jianlin Cheng, Dong Xu</span>
+    </li>
+
+    <li>
+      <strong>Images of two standard crude oils collected using a fluorescent camera device to train and optimize a machine learning model for real-time oil spill concentration assessment collected from November 7, 2023, to July 8, 2024</strong>
+      <a href="https://ui.adsabs.harvard.edu/abs/2025usgs.data.1228P/abstract"
+         target="_blank" style="font-weight:normal; font-size:0.95em; margin-left:6px;">[View paper]</a><br>
+      <span class="authors"><b>Biplab Poudel</b>, Jiacheng Xie, Congyu Guo, Dong Xu, Rishi J Patel,
+      Olivia Watt, Erin Pulster, Jeffery Steevens</span>
+    </li>
+
+    <li>
+      <strong>TOM: An Open-Source Tongue Segmentation Method with Multi-Teacher Distillation and Task-Specific Data Augmentation</strong>
+      <a href="https://arxiv.org/abs/2508.14932" target="_blank"
+         style="font-weight:normal; font-size:0.95em; margin-left:6px;">[View paper]</a><br>
+      <span class="authors">Jiacheng Xie, Ziyang Zhang, <b>Biplab Poudel</b>, ...., Dong Xu</span>
+    </li>
+
+    <li>
+      <strong>S‐PLM: Structure‐Aware Protein Language Model via Contrastive Learning Between Sequence and Structure</strong>
+      <a href="https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/advs.202404212" target="_blank"
+         style="font-weight:normal; font-size:0.95em; margin-left:6px;">[View paper]</a><br>
+      <span class="authors">Duolin Wang, Mahdi Pourmirzaei, Usman L Abbas, Shuai Zeng, Negin Manshour,
+      Farzaneh Esmaili, <b>Biplab Poudel</b>, Yuexu Jiang, Qing Shao, Jin Chen, Dong Xu</span>
+    </li>
+
+    <li>
+      <strong>Adapting segment anything model (SAM) through prompt-based learning for enhanced protein identification in cryo-EM micrographs</strong>
+      <a href="https://ieeexplore.ieee.org/abstract/document/10803288/" target="_blank"
+         style="font-weight:normal; font-size:0.95em; margin-left:6px;">[View paper]</a><br>
+      <span class="authors">Fei He, Zhiyuan Yang, Mingyue Gao, <b>Biplab Poudel</b>, ....., Dong Xu</span>
+    </li>
   </ol>
 </section>
 
 <section class="section" id="education">
   <h2>Education</h2>
   <ul>
-    {% for e in p.education %}
-      <li>
-        <strong>{{ e.degree }} ({{ e.years }})</strong><br>
-        <span class="edu-sub">{{ e.school }}</span>
-      </li>
-    {% endfor %}
+    <li>
+      <strong>Ph.D. in Computer Science (2021–Present)</strong><br>
+      <span class="edu-sub">University of Missouri – Columbia</span>
+    </li>
+    <li>
+      <strong>MS in Computer Science (2021–2025)</strong><br>
+      <span class="edu-sub">University of Missouri – Columbia</span>
+    </li>
+    <li>
+      <strong>B.E. in Computer Engineering (2015–2019)</strong><br>
+      <span class="edu-sub">Tribhuvan University</span>
+    </li>
   </ul>
 </section>
-
 
 <section class="section" id="experience">
   <h2>Experience</h2>
   <ul>
-    {% for x in p.experience %}
-      <li>
-        <strong>{{ x.role }} ({{ x.years }})</strong><br>
-        <span class="exp-sub">{{ x.org }}</span>
-      </li>
-    {% endfor %}
+    <li>
+      <strong>Graduate Research Assistant (2021 – Present)</strong><br>
+      <span class="exp-sub">University of Missouri–Columbia</span>
+    </li>
+    <li>
+      <strong>Ph.D. Research Intern (May 2024 – Aug 2024)</strong><br>
+      <span class="exp-sub">Microsoft</span>
+    </li>
+    <li>
+      <strong>Data Analyst (May 2023 – Aug 2023)</strong><br>
+      <span class="exp-sub">Microsoft</span>
+    </li>
+    <li>
+      <strong>Lecturer (Nov 2019 – July 2021)</strong><br>
+      <span class="exp-sub">Janakpur Engineering College, Nepal</span>
+    </li>
   </ul>
 </section>
-
 
 <section class="section" id="book">
   <h2>Published Book</h2>
   <ul>
-    {% for b in p.books %}
-      <li>
-        <strong>{{ b.title }}</strong>
-        {% if b.link and b.link != '#' %}
-          <a href="{{ b.link }}" target="_blank" style="font-weight:normal; font-size:0.95em; margin-left:6px;">[View book]</a>
-        {% endif %}
-        <br>
-        <span class="book-sub">{{ b.publisher }}, <em>{{ b.year }}</em></span>
-      </li>
-    {% endfor %}
+    <li>
+      <strong>Insights on Internet and Intranet</strong>
+      <a href="https://www.researchgate.net/publication/396401319_Insights_on_Internet_and_Intranet"
+         target="_blank" style="font-weight:normal; font-size:0.95em; margin-left:6px;">[View book]</a><br>
+      <span class="book-sub">System Inception, Nepal, <em>2020</em></span>
+    </li>
   </ul>
 </section>
+
 
 <footer>© Biplab Poudel</footer>
 </div>
